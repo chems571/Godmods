@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0d12">
+<title>SA Mods Android · Ports y Mods AML</title>
+<meta name="description" content="Mods AML para GTA San Andreas Android: ports de PC y mods propios. Descarga gratis.">
+<style>
+:root{--bg:#0b0d12;--bg2:#121620;--card:#151a25;--tx:#eef1f7;--mu:#96a0b5;--ac:#ff7a1a;--ac2:#ffb347;--bd:#252c3b;--in:#1b2130;--ok:#3ddc97;color-scheme:dark}
+@media(prefers-color-scheme:light){:root{--bg:#f3f4f8;--bg2:#e9ebf2;--card:#fff;--tx:#14171c;--mu:#5d6675;--ac:#e8620a;--ac2:#f59e2c;--bd:#dde0e6;--in:#eef0f3;color-scheme:light}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(900px 420px at 80% -10%,rgba(255,122,26,.18),transparent 60%),radial-gradient(700px 380px at -10% 0%,rgba(80,120,255,.12),transparent 60%),var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh}
+.wrap{max-width:1100px;margin:auto;padding:0 16px}
+header{padding:34px 0 6px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;font-size:1.5rem;box-shadow:0 8px 24px rgba(255,122,26,.35)}
+h1{margin:0;font-size:1.75rem;letter-spacing:-.03em;line-height:1.1}
+h1 span{background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mu);margin:12px 0 0;max-width:620px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pill{background:var(--in);border:1px solid var(--bd);color:var(--mu);font-size:.8rem;padding:4px 12px;border-radius:999px}
+.pill b{color:var(--tx)}
+nav{position:sticky;top:0;z-index:20;margin-top:18px;padding:10px 0;background:linear-gradient(var(--bg) 70%,transparent)}
+.navin{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tab,button,.btn{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:9px 18px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .15s,border-color .15s}
+.tab:hover,button:hover{border-color:var(--ac)}
+.tab.on{background:linear-gradient(135deg,var(--ac),var(--ac2));border-color:transparent;color:#fff;font-weight:700;box-shadow:0 6px 18px rgba(255,122,26,.3)}
+input,textarea,select{font:inherit;width:100%;background:var(--in);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:11px 13px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--ac);outline-offset:1px}
+textarea{min-height:90px;resize:vertical}
+#q{flex:1;min-width:140px;width:auto}
+main{margin:14px auto 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,122,26,.5);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.thumb{position:relative;aspect-ratio:16/9;background:var(--in);cursor:pointer;overflow:hidden}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb .g{opacity:0;transition:opacity .25s}
+.thumb.play .g,.thumb:hover .g{opacity:1}
+.thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:50%;background:linear-gradient(transparent,rgba(0,0,0,.55));pointer-events:none}
+.tag{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);color:#fff;font-size:.75rem;padding:3px 11px;border-radius:999px;z-index:2}
+.gif{position:absolute;right:10px;top:10px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:8px;z-index:2}
+.body{padding:15px;display:flex;flex-direction:column;gap:9px;flex:1}
+.body h3{margin:0;font-size:1.08rem;letter-spacing:-.01em}
+.meta{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.ver{color:var(--mu);font-size:.8rem}
+.rate{color:var(--ac2);font-size:.85rem;font-weight:700}
+.rate small{color:var(--mu);font-weight:400}
+.desc{color:var(--mu);font-size:.92rem;white-space:pre-wrap;margin:0;flex:1}
+.dl{background:linear-gradient(135deg,var(--ac),var(--ac2));border:0;color:#fff;font-weight:800;text-align:center;padding:12px}
+.dl:hover{filter:brightness(1.08)}
+.ghost{width:100%;font-size:.88rem;padding:8px}
+.msg{grid-column:1/-1;text-align:center;color:var(--mu);padding:46px 0}
+#cm{display:none;margin:14px auto 40px;max-width:760px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px}
+.box h2{margin:0 0 4px;font-size:1.15rem}
+.box label{display:block;font-size:.82rem;color:var(--mu);margin:12px 0 4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.stars{display:flex;gap:4px}
+.stars button{padding:4px 10px;font-size:1.25rem;line-height:1;border-radius:10px;color:var(--mu)}
+.stars button.on{color:var(--ac2);border-color:var(--ac2)}
+.hp{position:absolute;left:-9999px;opacity:0}
+.note{font-size:.85rem;min-height:1.2em;margin:10px 0 0}
+.note.e{color:#ff6b6b}.note.o{color:var(--ok)}
+.cmt{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-top:12px}
+.ch{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;font-weight:800;display:grid;place-items:center;flex:none}
+.cn{font-weight:700}
+.ct{font-size:.78rem;color:var(--mu)}
+.cmod{font-size:.75rem;background:var(--in);border:1px solid var(--bd);padding:2px 10px;border-radius:999px;color:var(--mu)}
+.cb{margin:8px 0 0;white-space:pre-wrap;word-break:break-word}
+#admin{display:none;max-width:700px;margin:0 auto 40px}
+#admin .box label{margin-top:12px}
+#out{font-family:ui-monospace,Menlo,monospace;font-size:.8rem;white-space:pre-wrap;word-break:break-all}
+footer{color:var(--mu);font-size:.8rem;text-align:center;padding:10px 16px 36px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><div class="logo">🎮</div><h1>SA Mods <span>Android</span></h1></div>
+    <p class="sub">Mods AML para GTA San Andreas Android: ports de PC adaptados y mods propios. Descarga gratis y cuéntanos qué te parecen.</p>
+    <div class="pills"><span class="pill"><b id="s-p">0</b> ports</span><span class="pill"><b id="s-m">0</b> mods</span><span class="pill"><b id="s-c">0</b> comentarios</span></div>
+  </header>
+  <nav><div class="navin">
+    <a class="tab" id="t-ports" href="#ports">Ports</a>
+    <a class="tab" id="t-mods" href="#mods">Mods</a>
+    <a class="tab" id="t-comentarios" href="#comentarios">Comentarios</a>
+    <input id="q" type="search" placeholder="Buscar mod…" aria-label="Buscar">
+  </div></nav>
+
+  <main id="list"><div class="msg">Cargando…</div></main>
+
+  <section id="cm">
+    <div class="box">
+      <h2>Deja tu comentario</h2>
+      <p class="ct" style="margin:0">Cuéntanos si el mod está bueno o no. Sé respetuoso.</p>
+      <label for="c-mod">¿Sobre qué mod?</label>
+      <select id="c-mod"><option value="General">General (la página)</option></select>
+      <div class="two">
+        <div><label for="c-name">Tu nombre</label><input id="c-name" maxlength="30" placeholder="Ej: Carlos" autocomplete="nickname"></div>
+        <div><label>Calificación (opcional)</label><div class="stars" id="c-stars"></div></div>
+      </div>
+      <label for="c-body">Comentario</label>
+      <textarea id="c-body" maxlength="500" placeholder="¿Te funcionó? ¿En qué dispositivo?"></textarea>
+      <input class="hp" id="c-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="note" id="c-note"></p>
+      <button id="c-send" class="dl" style="width:100%;margin-top:6px">Publicar comentario</button>
+    </div>
+    <div id="c-list"></div>
+  </section>
+
+  <section id="admin">
+    <div class="box">
+      <h2>Generador de fichas</h2>
+      <p class="ct">Rellena, copia el resultado y pégalo en <b>mods.json</b>. Sube las imágenes a <b>img/</b> con el mismo nombre.</p>
+      <label>Apartado</label>
+      <select id="a-sec"><option value="ports">Ports</option><option value="mods">Mods</option></select>
+      <label>Título</label><input id="a-title">
+      <label>Versión / compatibilidad</label><input id="a-ver" placeholder="v1.0 · GTA SA 2.10 ARM64">
+      <label>Descripción</label><textarea id="a-desc"></textarea>
+      <label>Imagen (solo se usa el nombre del archivo)</label><input id="a-img" type="file" accept="image/*">
+      <label>GIF (opcional)</label><input id="a-gif" type="file" accept="image/gif">
+      <label>Enlace de descarga (Mods Fire)</label><input id="a-link" type="url">
+      <p><button id="a-go" class="dl">Generar ficha</button> <button id="a-copy">Copiar</button></p>
+      <div id="out"></div>
+    </div>
+  </section>
+</div>
+<footer>Los archivos se descargan desde Mods Fire y pueden mostrar anuncios allí. Los mods no están afiliados a Rockstar Games.</footer>
+
+<script>
+/* Pega aquí los datos de tu proyecto Supabase para activar los comentarios */
+const SUPABASE_URL='';
+const SUPABASE_KEY='';
+
+const ON=!!(SUPABASE_URL&&SUPABASE_KEY);
+const $=s=>document.querySelector(s);
+let mods=[],comments=[],tab='ports',q='',rating=0,cErr=false;
+
+const esc=s=>{const d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML};
+const attr=s=>esc(s).replace(/"/g,'&quot;');
+const safe=u=>{try{const x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:null}catch(e){return null}};
+const path=p=>/^img\/[\w.\-]+$/.test(p||'')?p:'';
+const H=()=>({apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY});
+
+function route(){
+  const h=location.hash.replace('#','');
+  if(['ports','mods','comentarios','admin'].includes(h))tab=h;
+  ['ports','mods','comentarios'].forEach(t=>$('#t-'+t).classList.toggle('on',tab===t));
+  $('#list').style.display=(tab==='ports'||tab==='mods')?'grid':'none';
+  $('#cm').style.display=tab==='comentarios'?'block':'none';
+  $('#admin').style.display=tab==='admin'?'block':'none';
+  $('#q').style.display=(tab==='ports'||tab==='mods')?'':'none';
+  renderCards();renderComments();
+}
+
+function stats(){
+  const m={};
+  comments.forEach(c=>{if(c.rating){const o=m[c.mod_title]||(m[c.mod_title]={n:0,s:0});o.n++;o.s+=c.rating}});
+  return m;
+}
+
+function renderCards(){
+  $('#s-p').textContent=mods.filter(m=>m.section==='ports').length;
+  $('#s-m').textContent=mods.filter(m=>m.section==='mods').length;
+  $('#s-c').textContent=comments.length;
+  if(tab!=='ports'&&tab!=='mods')return;
+  const st=stats();
+  const items=mods.filter(m=>m.section===tab&&(!q||((m.title||'')+' '+(m.desc||'')).toLowerCase().includes(q)));
+  $('#list').innerHTML=items.length?items.map(m=>{
+    const link=safe(m.link),img=path(m.img),gif=path(m.gif),r=st[m.title];
+    return '<article class="card"><div class="thumb" onclick="this.classList.toggle(\'play\')">'
+      +'<span class="tag">'+(m.section==='ports'?'Port de PC':'Mod')+'</span>'
+      +(gif?'<span class="gif">GIF</span>':'')
+      +(img?'<img src="'+attr(img)+'" alt="" loading="lazy">':'')
+      +(gif?'<img class="g" src="'+attr(gif)+'" alt="" loading="lazy">':'')
+      +'</div><div class="body"><h3>'+esc(m.title)+'</h3>'
+      +'<div class="meta"><span class="ver">'+esc(m.ver)+'</span>'
+      +(r?'<span class="rate">★ '+(r.s/r.n).toFixed(1)+' <small>('+r.n+')</small></span>':'')+'</div>'
+      +'<p class="desc">'+esc(m.desc)+'</p>'
+      +(link?'<a class="btn dl" href="'+attr(link)+'" target="_blank" rel="noopener noreferrer nofollow sponsored">⬇ Descargar</a>':'')
+      +'<button class="ghost" data-c="'+attr(m.title)+'">💬 Comentar este mod</button>'
+      +'</div></article>';
+  }).join(''):'<div class="msg">No hay mods en este apartado todavía.</div>';
+}
+
+$('#list').addEventListener('click',e=>{
+  const b=e.target.closest('[data-c]');if(!b)return;
+  $('#c-mod').value=b.dataset.c;location.hash='#comentarios';
+  setTimeout(()=>$('#c-body').focus(),50);
+});
+
+function fillSelect(){
+  const sel=$('#c-mod'),cur=sel.value;
+  sel.innerHTML='<option value="General">General (la página)</option>'+mods.map(m=>'<option value="'+attr(m.title)+'">'+esc(m.title)+'</option>').join('');
+  sel.value=cur&&[...sel.options].some(o=>o.value===cur)?cur:'General';
+}
+
+function renderComments(){
+  const el=$('#c-list');
+  if(!ON){el.innerHTML='<div class="msg">Los comentarios estarán disponibles muy pronto.</div>';return}
+  if(cErr){el.innerHTML='<div class="msg">No se pudieron cargar los comentarios.</div>';return}
+  el.innerHTML=comments.length?comments.map(c=>
+    '<div class="cmt"><div class="ch"><div class="av">'+esc((c.author||'?').trim().charAt(0).toUpperCase())+'</div>'
+    +'<div><div class="cn">'+esc(c.author)+(c.rating?' <span class="rate">'+'★'.repeat(c.rating)+'</span>':'')+'</div>'
+    +'<div class="ct">'+new Date(c.created_at).toLocaleDateString('es',{day:'numeric',month:'short',year:'numeric'})+'</div></div>'
+    +'<span class="cmod" style="margin-left:auto">'+esc(c.mod_title)+'</span></div>'
+    +'<p class="cb">'+esc(c.body)+'</p></div>').join('')
+    :'<div class="msg">Sé el primero en comentar.</div>';
+}
+
+async function loadComments(){
+  if(!ON)return;
+  try{
+    const r=await fetch(SUPABASE_URL+'/rest/v1/comments?select=*&order=created_at.desc&limit=200',{headers:H()});
+    if(!r.ok)throw new Error(r.status);
+    comments=await r.json();cErr=false;
+  }catch(e){cErr=true}
+  renderCards();renderComments();
+}
+
+function note(t,k){const n=$('#c-note');n.textContent=t;n.className='note '+(k||'')}
+
+$('#c-stars').innerHTML=[1,2,3,4,5].map(i=>'<button type="button" data-s="'+i+'" aria-label="'+i+' estrellas">★</button>').join('');
+$('#c-stars').addEventListener('click',e=>{
+  const b=e.target.closest('[data-s]');if(!b)return;
+  const v=+b.dataset.s;rating=rating===v?0:v;
+  [...$('#c-stars').children].forEach((x,i)=>x.classList.toggle('on',i<rating));
+});
+
+$('#c-send').addEventListener('click',async()=>{
+  if(!ON)return note('Los comentarios aún no están activados.','e');
+  if($('#c-hp').value)return;
+  const author=$('#c-name').value.trim(),body=$('#c-body').value.trim(),mod_title=$('#c-mod').value;
+  if(author.length<1)return note('Escribe tu nombre.','e');
+  if(body.length<2)return note('Escribe tu comentario.','e');
+  const last=+localStorage.getItem('lastC')||0;
+  if(Date.now()-last<30000)return note('Espera unos segundos antes de comentar otra vez.','e');
+  $('#c-send').disabled=true;note('Publicando…');
+  try{
+    const r=await fetch(SUPABASE_URL+'/rest/v1/comments',{method:'POST',headers:{...H(),'Content-Type':'application/json',Prefer:'return=minimal'},
+      body:JSON.stringify({mod_title,author,body,rating:rating||null})});
+    if(!r.ok)throw new Error(r.status);
+    localStorage.setItem('lastC',Date.now());
+    $('#c-body').value='';rating=0;[...$('#c-stars').children].forEach(x=>x.classList.remove('on'));
+    note('¡Gracias! Tu comentario fue publicado.','o');
+    await loadComments();
+  }catch(e){note('No se pudo publicar. Inténtalo más tarde.','e')}
+  $('#c-send').disabled=false;
+});
+
+addEventListener('hashchange',route);
+$('#q').addEventListener('input',e=>{q=e.target.value.toLowerCase();renderCards()});
+
+$('#a-go').onclick=()=>{
+  const f=id=>$(id).files[0];
+  const o={section:$('#a-sec').value,title:$('#a-title').value.trim(),ver:$('#a-ver').value.trim(),desc:$('#a-desc').value.trim(),
+    img:f('#a-img')?'img/'+f('#a-img').name:'',gif:f('#a-gif')?'img/'+f('#a-gif').name:'',link:$('#a-link').value.trim()};
+  $('#out').textContent=JSON.stringify(o,null,2)+',';
+};
+$('#a-copy').onclick=()=>navigator.clipboard&&navigator.clipboard.writeText($('#out').textContent);
+
+fetch('mods.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{mods=d.slice().reverse();fillSelect();route()})
+  .catch(()=>{$('#list').innerHTML='<div class="msg">No se pudo cargar mods.json.</div>'});
+route();loadComments();
+</script>
+</body>
+</html>
